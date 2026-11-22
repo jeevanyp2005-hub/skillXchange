@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f8fafc; /* Pure soft light background */
+    color: #1e293b; /* Deep slate body text for high contrast */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #0f172a; /* Deepest Slate headings */
+  }
+
+  /* Custom thin light scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer components {
+  /* Premium SaaS Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Dark primary button on light theme (Vercel style) */
+  .btn-primary {
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1px solid #0f172a;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: #1e293b;
+    border-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  }
+
+  /* Light gray secondary button */
+  .btn-secondary {
+    background-color: #ffffff;
+    color: #1e293b; /* Deep slate */
+    border: 1px solid #94a3b8; /* Darker border for contrast */
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    border-color: #475569;
+  }
+
+  /* Softer Red danger button */
+  .btn-danger {
+    background-color: #fff5f5;
+    color: #c53030; /* Darker red */
+    border: 1px solid #feb2b2;
+  }
+  .btn-danger:hover:not(:disabled) {
+    background-color: #fed7d7;
+    border-color: #fc8181;
+  }
+
+  /* Clean ghost button */
+  .btn-ghost {
+    background-color: transparent;
+    color: #475569; /* Slate-600 */
+    border: 1px solid transparent;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #0f172a;
+  }
+
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 15.5px;
+    border-radius: 8px;
+  }
+
+  /* Modern light input fields */
+  .input {
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    color: #0f172a;
+    border: 1px solid #94a3b8; /* Darker grey border */
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    outline: none;
+    transition: all 150ms ease;
+  }
+
+  .input:focus {
+    border-color: #2563eb; /* Blue-600 focus */
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    background-color: #ffffff;
+  }
+
+  .input:disabled {
+    background-color: #f8fafc;
+    color: #64748b;
+    border-color: #cbd5e1;
+    cursor: not-allowed;
+  }
+
+  .input-error {
+    border-color: #dc2626;
+  }
+
+  .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155; /* Slate-700 for labels */
+    margin-bottom: 6px;
+  }
+
+  /* Clean Slate light Cards */
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1; /* Higher contrast border */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-hover {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 200ms ease;
+  }
+  .card-hover:hover {
+    border-color: #64748b; /* Stronger border hover */
+    background-color: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Rounded pill tags */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #cbd5e1;
+    background-color: #f1f5f9;
+    color: #334155;
+  }
+
+  .badge-blue {
+    border-color: #93c5fd;
+    background-color: #eff6ff;
+    color: #1d4ed8; /* Blue-700 for high contrast */
+  }
+
+  .badge-green {
+    border-color: #a7f3d0;
+    background-color: #ecfdf5;
+    color: #047857; /* Green-700 */
+  }
+
+  .badge-yellow {
+    border-color: #fde68a;
+    background-color: #fffbeb;
+    color: #b45309; /* Yellow-700 */
+  }
+
+  .badge-red {
+    border-color: #fca5a5;
+    background-color: #fef2f2;
+    color: #b91c1c; /* Red-700 */
+  }
+
+  .badge-gray {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+    color: #475569;
+  }
+
+  .section-title {
+    font-size: 16.5px;
+    font-weight: 600;
+    color: #0f172a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    border-top: 1px solid #cbd5e1;
+  }
+
+  .error-text {
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: 4px;
+    display: block;
+  }
+}
